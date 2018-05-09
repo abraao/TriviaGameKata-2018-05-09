@@ -87,10 +87,7 @@ namespace TriviaGame.Tests
         [TestCase(4)]
         public void be_playable_with_two_or_more_players(int numPlayers)
         {
-            for (int ii = 0; ii < numPlayers; ii++)
-            {
-                this.game.add("new player " + ii);
-            }
+            AddNumPlayers(numPlayers);
 
             Assert.True(this.game.isPlayable());
         }
@@ -102,6 +99,22 @@ namespace TriviaGame.Tests
             AssertQuestionListExists(this.game.ScienceQuestions, "Science Question ");
             AssertQuestionListExists(this.game.SportsQuestions, "Sports Question ");
             AssertQuestionListExists(this.game.RockQuestions, "Rock Question ");
+        }
+
+        [Test]
+        public void not_be_able_to_add_more_than_five_players()
+        {
+            AddNumPlayers(5);
+
+            Assert.Throws<System.IndexOutOfRangeException>(() => this.game.add("too many"));
+        }
+        
+        private void AddNumPlayers(int numPlayers)
+        {
+            for (int ii = 0; ii < numPlayers; ii++)
+            {
+                this.game.add("new player " + ii);
+            }
         }
 
         private void AssertQuestionListExists(LinkedList<string> questions, string expectedPrefix)
