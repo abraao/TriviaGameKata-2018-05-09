@@ -11,12 +11,12 @@ namespace TriviaGame.Tests
     [TestFixture]
     public class GameShould
     {
-        private Game game;
+        private TestGame game;
 
         [SetUp]
         public void SetUp()
         {
-            this.game = new Game();
+            this.game = new TestGame();
         }
 
         [Test]
@@ -72,6 +72,25 @@ namespace TriviaGame.Tests
             }
 
             Assert.True(this.game.isPlayable());
+        }
+
+        [Test]
+        public void initialize_50_of_each_question_type()
+        {
+            AssertQuestionListExists(this.game.PopQuestions, "Pop Question ");
+            AssertQuestionListExists(this.game.ScienceQuestions, "Science Question ");
+            AssertQuestionListExists(this.game.SportsQuestions, "Sports Question ");
+            AssertQuestionListExists(this.game.RockQuestions, "Rock Question ");
+        }
+
+        private void AssertQuestionListExists(LinkedList<string> questions, string expectedPrefix)
+        {
+            int ii = 0;
+            foreach (string question in questions)
+            {
+                Assert.AreEqual(expectedPrefix + ii, question);
+                ii++;
+            }
         }
     }
 }
