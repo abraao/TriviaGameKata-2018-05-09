@@ -60,5 +60,18 @@ namespace TriviaGame.Tests
 
             Assert.IsFalse(this.game.isPlayable());
         }
+
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        public void be_playable_with_two_or_more_players(int numPlayers)
+        {
+            for (int ii = 0; ii < numPlayers; ii++)
+            {
+                this.game.add("new player " + ii);
+            }
+
+            Assert.True(this.game.isPlayable());
+        }
     }
 }
