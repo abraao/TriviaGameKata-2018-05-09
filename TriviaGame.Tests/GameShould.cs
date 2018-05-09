@@ -64,9 +64,15 @@ namespace TriviaGame.Tests
         [Test]
         public void update_the_places_slot_when_a_player_is_added()
         {
-
             this.game.add("P1");
             Assert.Zero(this.game.Places[this.game.howManyPlayers()]);
+        }
+
+        [Test]
+        public void update_the_purses_slot_when_a_player_is_added()
+        {
+            this.game.add("P1");
+            Assert.Zero(this.game.Purses[this.game.howManyPlayers()]);
         }
 
         [TestCase(2)]
