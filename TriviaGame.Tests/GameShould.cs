@@ -40,13 +40,25 @@ namespace TriviaGame.Tests
         [Test]    
         public void increment_the_number_of_players_when_adding()
         {
-            const string NewPlayerName = "New Player";
+            const string NEW_PLAYER_NAME = "New Player";
+
             int beforeAdding = game.howManyPlayers();
-            bool additionResult = game.add(NewPlayerName);
-            Assert.True((additionResult));
-            Assert.AreEqual(beforeAdding+1,
+            bool additionResult = game.add(NEW_PLAYER_NAME);
+
+            Assert.True(additionResult);
+            Assert.AreEqual(
+                beforeAdding+1,
                 game.howManyPlayers());
         }
 
+        [Test]
+        public void not_be_playable_with_fewer_than_two_players()
+        {
+            Assert.IsFalse(this.game.isPlayable());
+
+            this.game.add("new player");
+
+            Assert.IsFalse(this.game.isPlayable());
+        }
     }
 }
