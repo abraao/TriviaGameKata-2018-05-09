@@ -32,9 +32,21 @@ namespace TriviaGame.Tests
         }
 
         [Test]
-        public void should_have_zero_players_when_constructed()
+        public void have_zero_players_when_constructed()
         {
             Assert.Zero(game.howManyPlayers());
         }
+            
+        [Test]    
+        public void increment_the_number_of_players_when_adding()
+        {
+            const string NewPlayerName = "New Player";
+            int beforeAdding = game.howManyPlayers();
+            bool additionResult = game.add(NewPlayerName);
+            Assert.True((additionResult));
+            Assert.AreEqual(beforeAdding+1,
+                game.howManyPlayers());
+        }
+
     }
 }
