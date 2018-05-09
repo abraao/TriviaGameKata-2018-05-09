@@ -18,8 +18,12 @@ namespace TriviaGame.Tests
         public LinkedList<string> RockQuestions => rockQuestions;
 
         public int[] Places => places;
+
         public int[] Purses => purses;
+
         public bool[] InPenaltyBox => inPenaltyBox;
+
+        public int CurrentPlayer => currentPlayer;
 
     }
 }

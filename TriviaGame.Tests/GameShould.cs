@@ -108,7 +108,13 @@ namespace TriviaGame.Tests
 
             Assert.Throws<System.IndexOutOfRangeException>(() => this.game.add("too many"));
         }
-        
+
+        [Test]
+        public void current_player_starts_at_zero()
+        {
+            Assert.Zero(this.game.CurrentPlayer);
+        }
+
         private void AddNumPlayers(int numPlayers)
         {
             for (int ii = 0; ii < numPlayers; ii++)

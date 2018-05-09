@@ -21,7 +21,7 @@ namespace UglyTrivia
         protected LinkedList<string> sportsQuestions = new LinkedList<string>();
         protected LinkedList<string> rockQuestions = new LinkedList<string>();
 
-        int currentPlayer = 0;
+        protected int currentPlayer = 0;
         bool isGettingOutOfPenaltyBox;
 
         public Game()
