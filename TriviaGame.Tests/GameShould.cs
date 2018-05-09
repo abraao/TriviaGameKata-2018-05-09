@@ -115,6 +115,17 @@ namespace TriviaGame.Tests
             Assert.Zero(this.game.CurrentPlayer);
         }
 
+        [Test]
+        public void put_current_player_in_penalty_and_advance_current_player_when_wrong_answer()
+        {
+            this.game.add("P1");
+            this.game.add("P2");
+            this.game.wrongAnswer();
+
+            Assert.True(this.game.InPenaltyBox[0]);
+            Assert.AreEqual(1, this.game.CurrentPlayer);
+        }
+
         private void AddNumPlayers(int numPlayers)
         {
             for (int ii = 0; ii < numPlayers; ii++)
