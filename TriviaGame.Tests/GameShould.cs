@@ -75,6 +75,13 @@ namespace TriviaGame.Tests
             Assert.Zero(this.game.Purses[this.game.howManyPlayers()]);
         }
 
+        [Test]
+        public void update_the_in_penalty_box_slot_when_a_player_is_added()
+        {
+            this.game.add("P1");
+            Assert.False(this.game.InPenaltyBox[this.game.howManyPlayers()]);
+        }
+
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
