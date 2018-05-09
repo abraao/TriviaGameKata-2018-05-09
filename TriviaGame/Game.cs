@@ -11,10 +11,10 @@ namespace UglyTrivia
 
         List<string> players = new List<string>();
 
-        int[] places = new int[6];
-        int[] purses = new int[6];
+        protected int[] places = new int[6];
+        protected int[] purses = new int[6];
 
-        bool[] inPenaltyBox = new bool[6];
+        protected bool[] inPenaltyBox = new bool[6];
 
         protected LinkedList<string> popQuestions = new LinkedList<string>();
         protected LinkedList<string> scienceQuestions = new LinkedList<string>();
