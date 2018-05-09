@@ -30,5 +30,11 @@ namespace TriviaGame.Tests
                 "Rock Question " + QUESTION_NUM.ToString(),
                 question);
         }
+
+        [Test]
+        public void should_have_zero_players_when_constructed()
+        {
+            Assert.Zero(game.howManyPlayers());
+        }
     }
 }
